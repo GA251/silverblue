@@ -11,10 +11,10 @@ image-version: latest # latest is also supported if you want new updates ASAP
 
 modules:
   # Copies files to the container image
-  - type: files
-    files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+  #- type: files
+  #  files:
+  #    - source: system
+  #      destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
   # Configures Default Packages from DNF
   - type: dnf
     install:
@@ -39,5 +39,9 @@ modules:
     configurations:
       # Disables Fedora Flatpak and uses Flathub (User) exclusively. Users decide what apps they want.
       - scope: user
+  # Runs a "Prepare for First Use" script before the image is packaged and signed.
+  - type: script
+    scripts:
+      - PrepareForFirstUse.sh
   # Configure image signing and security policy - REQIRED
   - type: signing
