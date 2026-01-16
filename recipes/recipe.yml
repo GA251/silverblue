@@ -16,6 +16,9 @@ modules:
   #      destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
   # Configures Default Packages from DNF
   - type: dnf
+    repos:
+      copr:
+        - ublue-os/packages
     install:
       packages:
         - fastfetch
