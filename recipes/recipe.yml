@@ -39,9 +39,6 @@ modules:
       - scope: user
   # Configures GNOME
   - type: gschema-overrides
-    include:
-      - org.gnome.mutter.gschema.override 
-      - org.gnome.desktop.gschema.override
   # Runs a "Prepare for First Use" script before the image is packaged and signed.
   - type: script
     scripts:
