@@ -1,5 +1,7 @@
+# Make GNOME center all new windows
 [org.gnome.mutter]
 center-new-windows=true
 
+# Enable experimental features for VRR etc. (https://github.com/ublue-os/bazzite/blob/main/spec_files/mutter/org.gnome.mutter.fedora.gschema.override)
 [org.gnome.mutter:GNOME]
 experimental-features=['variable-refresh-rate', scale-monitor-framebuffer', 'xwayland-native-scaling', 'kms-modifiers']
