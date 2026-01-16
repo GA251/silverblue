@@ -12,11 +12,12 @@ image-version: latest # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  # Copies some files? (not needed rn.)
   - type: files
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
+  # Configures Default Packages from DNF
   - type: dnf
     #repos:
     #  copr:
@@ -32,7 +33,13 @@ modules:
         - toolbox
         - gnome-classic-session
         - gnome-tour
-
+  # Integrates NVIDIA-OPEN Drivers
+  - type: akmods
+    base: main
+    install:
+      - nvidia
+    nvidia-driver: nvidia-open
+  # Configures default flatpaks
   - type: default-flatpaks
     configurations:
       # Disables Fedora Flatpak and uses Flathub (User) exclusively. Users decide what apps they want.
