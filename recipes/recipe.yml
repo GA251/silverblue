@@ -27,6 +27,7 @@ modules:
         - toolbox
         - gnome-classic-session
         - gnome-tour
+        - yelp
   # Integrates NVIDIA-OPEN Drivers
   - type: akmods
     base: main
@@ -35,8 +36,25 @@ modules:
   # Configures default flatpaks
   - type: default-flatpaks
     configurations:
-      # Disables Fedora Flatpak and uses Flathub (User) exclusively. Users decide what apps they want.
-      - scope: user
+      # Disables Fedora Flatpak and uses Flathub exclusively. Users decide what apps they want.
+      - notify: true
+        scope: system
+        install: # system flatpaks we want all users to have and not remove
+          - org.gnome.Epiphany # GNOME Web
+          - com.github.tchx84.Flatseal
+          - org.gnome.Calculator
+          - org.gnome.Calendar
+          - org.gnome.Characters
+          - org.gnome.Logs # GNOME Logs
+          - org.gnome.Loupe # Image Viewer
+          - org.gnome.NautilusPreviewer # GNOME Sushi
+          - org.gnome.Papers # Document Viewer
+          - org.gnome.Snapshot # Camera
+          - org.gnome.TextEditor
+          - org.gnome.Weather
+          - org.gnome.baobab # Disk Usage Analyzer
+          - org.gnome.clocks
+          - org.gnome.font-viewer
   # Configures GNOME
   - type: gschema-overrides
   # Runs a "Prepare for First Use" script before the image is packaged and signed.
