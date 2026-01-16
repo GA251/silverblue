@@ -9,19 +9,14 @@ description: A custom image of an already amazing immutable linux distro
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: latest # latest is also supported if you want new updates ASAP
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
-  # Copies some files? (not needed rn.)
+  # Copies files to the container image
   - type: files
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
   # Configures Default Packages from DNF
   - type: dnf
-    #repos:
-    #  copr:
-    #    - atim/starship
     install:
       packages:
         - fastfetch
@@ -44,5 +39,5 @@ modules:
     configurations:
       # Disables Fedora Flatpak and uses Flathub (User) exclusively. Users decide what apps they want.
       - scope: user
-
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  # Configure image signing and security policy - REQIRED
+  - type: signing
