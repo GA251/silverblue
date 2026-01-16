@@ -19,6 +19,7 @@ modules:
     install:
       packages:
         - fastfetch
+        - uupd
     remove:
       packages:
         # removes firefox (in favor of the flatpak)
@@ -28,6 +29,13 @@ modules:
         - gnome-classic-session
         - gnome-tour
         - yelp
+        - ublue-os-update-services
+  # Enables UUPD (Universal Update)
+  # Normally this is supposed to be provided by bling (https://blue-build.org/reference/modules/bling/)
+  # but it isn't (for now). So we install it through recipe.yml, then configure it here.
+  - type: script
+    scripts:
+      - EnableUUPD.sh
   # Integrates NVIDIA-OPEN Drivers
   - type: akmods
     base: main
