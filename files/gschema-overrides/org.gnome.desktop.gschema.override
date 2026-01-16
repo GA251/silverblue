@@ -1,5 +1,3 @@
 # Enable tap-to-click for touchpads in both greeter and gnome session
-[org.gnome.desktop.peripherals.touchpad:GNOME-Greeter]
-tap-to-click=true
 [org.gnome.desktop.peripherals.touchpad]
 tap-to-click=true
