@@ -3,7 +3,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: silver-ublue
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: A custom image of an already amazing immutable linux distro 
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
