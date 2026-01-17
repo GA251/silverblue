@@ -70,7 +70,6 @@ modules:
   - type: script
     scripts:
       - PrepareForFirstUse.sh
-  
   # Enables Numpad on boot during disk encryption process (Plymouth)
   - type: files
     files:
