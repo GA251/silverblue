@@ -9,11 +9,6 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: latest
 
 modules:
-  # Copies files to the container image
-  #- type: files
-  #  files:
-  #    - source: system
-  #      destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
   # Configures Default Packages from DNF
   - type: dnf
     repos:
@@ -75,5 +70,12 @@ modules:
   - type: script
     scripts:
       - PrepareForFirstUse.sh
+  
+  # Enables Numpad on boot during disk encryption process (Plymouth)
+  - type: files
+    files:
+      - source: dracut-numlock
+        destination: /usr/lib/dracut/modules.d/50numlock
+  - type: initramfs
   # Configure image signing and security policy - REQIRED
   - type: signing
