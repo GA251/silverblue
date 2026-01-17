@@ -15,8 +15,5 @@ set -oue pipefail
 sed -i 's/stage/none/g' /etc/rpm-ostreed.conf
 systemctl disable rpm-ostreed-automatic.timer
 
-# I disabled this only because bazzite Containerfile does too @ https://github.com/ublue-os/bazzite/blob/main/Containerfile#L294
-sed -i 's|uupd|& --disable-module-distrobox|' /usr/lib/systemd/system/uupd.service
-
 # Enable automatic updates w/ UUPD
 systemctl enable uupd.timer
