@@ -70,6 +70,7 @@ modules:
         - gnome-classic-session
         - gnome-tour
         - yelp
+        - gnome-software # Replaces GNOME Software in favor of Bazaar
   - type: default-flatpaks
     configurations:
       # Disables Fedora Flatpak and uses Flathub exclusively. Users decide what apps they want.
@@ -94,6 +95,7 @@ modules:
           - org.gnome.baobab # Disk Usage Analyzer
           - org.gnome.clocks
           - org.gnome.font-viewer
+          - io.github.kolunmi.Bazaar # Bazaar App Store (in favor of gnome-software)
   # Configures GNOME with gschema overrides @ files/gschema-overrides/*
   - type: gschema-overrides
   # Runs a "Prepare for First Use" script before the image is packaged and signed.
