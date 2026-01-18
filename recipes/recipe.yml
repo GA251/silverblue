@@ -60,6 +60,8 @@ modules:
   - type: script
     scripts:
       - EnableZapret.sh
+  # Configures GNOME with gschema overrides @ files/gschema-overrides/*
+  - type: gschema-overrides
   # Configures Inbox apps that are shipped with the image
   - type: dnf
     install:
@@ -75,6 +77,10 @@ modules:
         - gnome-tour
         - yelp
         - gnome-software # Replaces GNOME Software in favor of Bazaar
+        # These get installed by the previous modules but aren't needed to keep the image as simple as possible
+        - htop # (NVIDIA)
+        - nvtop # (NVIDIA)
+        - dconf-editor # (GSchema Overrides)
   - type: default-flatpaks
     configurations:
       # Disables Fedora Flatpak and uses Flathub exclusively. Users decide what apps they want.
@@ -100,8 +106,6 @@ modules:
           - org.gnome.baobab # Disk Usage Analyzer
           - org.gnome.clocks
           - org.gnome.font-viewer
-  # Configures GNOME with gschema overrides @ files/gschema-overrides/*
-  - type: gschema-overrides
   # Runs a "Prepare for First Use" script before the image is packaged and signed.
   - type: script
     scripts:
