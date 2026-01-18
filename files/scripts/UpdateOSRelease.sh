@@ -3,8 +3,8 @@
 # Tell this script to exit if there are any errors.
 set -oue pipefail
 
-# Updates the /etc/os-release file to better reflect the image version
-OS_RELEASE_FILE="/etc/os-release"
+# Updates the os-release file to better reflect the image version
+OS_RELEASE_FILE="/usr/lib/os-release"
 VARIANT=$(grep '^VARIANT=' "$OS_RELEASE_FILE" | cut -d'=' -f2 | tr -d "'")
 VERSION_ID=$(grep '^VERSION_ID=' "$OS_RELEASE_FILE" | cut -d'=' -f2 | tr -d "'")
 OSTREE_VERSION=$(grep '^OSTREE_VERSION=' "$OS_RELEASE_FILE" | cut -d'=' -f2 | tr -d "'")
