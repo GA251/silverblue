@@ -95,17 +95,17 @@ modules:
           - com.github.tchx84.Flatseal
           - org.gnome.Calculator
           - org.gnome.Calendar
-          - org.gnome.Characters
+          #- org.gnome.Characters
           - org.gnome.Logs # GNOME Logs
           - org.gnome.Loupe # Image Viewer
           - org.gnome.NautilusPreviewer # GNOME Sushi
           - org.gnome.Papers # Document Viewer
-          - org.gnome.Snapshot # Camera
+          #- org.gnome.Snapshot # Camera
           - org.gnome.TextEditor
           - org.gnome.Weather
           - org.gnome.baobab # Disk Usage Analyzer
           - org.gnome.clocks
-          - org.gnome.font-viewer
+          #- org.gnome.font-viewer
   # Runs a "Prepare for First Use" script before the image is packaged and signed.
   - type: script
     scripts:
