@@ -12,9 +12,9 @@ OSTREE_VERSION=$(grep '^OSTREE_VERSION=' "$OS_RELEASE_FILE" | cut -d'=' -f2 | tr
 # Update PRETTY_NAME and add/edit BUILD_ID
 sed -i.bak "s/^PRETTY_NAME=.*/PRETTY_NAME=\"Fedora Linux $VERSION_ID ($VARIANT)\"/" "$OS_RELEASE_FILE"
 # Add BUILD_ID if it doesn't exist, or update it if it does
-if grep -q '^BUILD_ID=' "$OS_RELEASE_FILE"; then
+#if grep -q '^BUILD_ID=' "$OS_RELEASE_FILE"; then
   #sed -i "s/^BUILD_ID=.*/BUILD_ID=\"$OSTREE_VERSION\"/" "$OS_RELEASE_FILE"
-else
+#else
   #echo "BUILD_ID=\"$OSTREE_VERSION\"" >> "$OS_RELEASE_FILE"
-fi
+#fi
 echo "BUILD_ID=test" >> "$OS_RELEASE_FILE"
