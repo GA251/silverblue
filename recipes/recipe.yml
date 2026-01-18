@@ -28,6 +28,15 @@ modules:
     install:
       packages:
         - zapret
+  - type: files
+    files:
+      - source: zapret
+        destination: /etc/zapret
+  # Configures DNS-over-TLS for secure connections
+  - type: files
+    files:
+      - source: resolved.conf.d
+        destination: /etc/systemd/resolved.conf.d
   # Enables UUPD (Universal Update)
   # Normally this is supposed to be provided by bling (https://blue-build.org/reference/modules/bling/)
   # but it isn't (for now). So we install it through recipe.yml, then configure it here.
