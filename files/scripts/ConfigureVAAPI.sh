@@ -6,4 +6,5 @@
 # Tell this script to exit if there are any errors.
 set -oue pipefail
 
-echo "LIBVA_DRIVER_NAME=nvidia;CUDA_DISABLE_PERF_BOOST=1" >> /etc/environment
+echo "LIBVA_DRIVER_NAME=nvidia" >> /etc/environment
+echo "CUDA_DISABLE_PERF_BOOST=1" >> /etc/environment
