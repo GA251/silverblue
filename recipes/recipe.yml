@@ -35,16 +35,10 @@ modules:
     install: [] # This is required but we don't want anything other than NVIDIA but that uses nvidia-driver
     nvidia-driver: nvidia-open
   - type: dnf
-    install:
-      packages:
-        - libva-nvidia-driver # Video Decoding Implementation for NVIDIA GPUs (Firefox)
     remove:
       packages:
         - nvidia-settings # NVIDIA X Server Settings (X11 is not available in GNOME)
         - nvidia-libXNVCtrl # NVIDIA X Server Settings dependency.
-  - type: script
-    scripts:
-      - ConfigureVAAPI.sh # Configure Video Decoding for NVIDIA GPUs
   # Configures DNS-over-TLS for secure connections
   - type: files
     files:
