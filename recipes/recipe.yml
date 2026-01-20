@@ -85,6 +85,7 @@ modules:
     install:
       packages:
         - fastfetch
+        - gnome-firmware # GNOME Firmware Manager
         - adw-gtk3-theme # Libadwaita theme for gtk3 apps
     remove:
       packages:
