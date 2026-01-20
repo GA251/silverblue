@@ -1,0 +1,25 @@
+# https://github.com/ublue-os/main/blob/main/.github/workflows/clean.yml
+name: Cleanup Old Images
+on:
+  schedule:
+    - cron: "15 0 * * 0" # 0015 UTC on Sundays
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+
+jobs:
+  delete-older-than-90:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - name: Delete Images Older Than 90 Days
+        uses: dataaxiom/ghcr-cleanup-action@latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          packages: silver-ublue
+          older-than: 2 days
+          delete-orphaned-images: true
+          keep-n-tagged: 7
+          keep-n-untagged: 7
