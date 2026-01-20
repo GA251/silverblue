@@ -35,3 +35,8 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
   systemctl reboot
   ```
+
+  Post-install:
+  - You might need to configure secure boot with ```ujust enroll-secure-boot-key```
+  - Because NVIDIA drivers don't support hardware decoding with firefox (by default), I recommend using Chromium based browsers or Epiphany (GNOME Web)
+  - While updates are automatic and are installed after reboot without any intervention, if you need to force-update, you can run ```sudo uupd```
