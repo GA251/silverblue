@@ -10,9 +10,8 @@ A custom Fedora Silverblue Image with the following:
 - [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
 - Most inbox apps moved to flatpaks
 
-> [!WARNING]
-> I think that my repo is a good reference point if you're looking towards building your own bluebuild image
-> But I don't think it is appropiate for anyone to install (considering it contains specific software)
+> [!]
+> I think that this repo is a good reference point if you're looking towards building your own bluebuild image
 > You can also take a look @ [Bluebuild Docs](https://blue-build.org/learn/getting-started/) to get started with bluebuild!
 
 ## Installation
