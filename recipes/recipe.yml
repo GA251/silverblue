@@ -5,8 +5,7 @@ name: silver-ublue
 description: A custom image of an already amazing immutable linux distro 
 
 # Builds the image on top of silverblue-main's latest version
-#base-image: ghcr.io/ublue-os/silverblue-main
-base-image: ghcr.io/blue-build/base-images/fedora-silverblue-nvidia-open
+base-image: ghcr.io/ublue-os/silverblue-main
 image-version: latest
 
 modules:
@@ -31,26 +30,26 @@ modules:
     scripts:
       - EnableUUPD.sh
   # Integrates NVIDIA-OPEN Drivers
-  #- type: akmods
-  #  base: main
-  #  install: [] # This is required but we don't want anything other than NVIDIA but that uses nvidia-driver
-  #  nvidia-driver: nvidia-open
-  #- type: dnf
-  #  remove:
-  #    packages:
-  #      - nvidia-settings # NVIDIA X Server Settings (X11 is not available in GNOME)
-  #      - nvidia-libXNVCtrl # NVIDIA X Server Settings dependency.
-  #      - htop
-  #      - nvtop
-  #- type: kargs
-  #  kargs:
-  #    - rd.driver.blacklist=nouveau
-  #    - modprobe.blacklist=nouveau
-  #    #- nvidia-drm.modeset=1 # check https://rpmfusion.org/Howto/NVIDIA#KMS to see why its disabled
-  #    - nvidia-drm.fbdev=1
-  #    - nvidia.NVreg_UsePageAttributeTable=1
-  #    - nvidia.NVreg_PreserveVideoMemoryAllocations=1
-  #    - nvidia.NVreg_TemporaryFilePath=/tmp
+  - type: akmods
+    base: main
+    install: [] # This is required but we don't want anything other than NVIDIA but that uses nvidia-driver
+    nvidia-driver: nvidia-open
+  - type: dnf
+    remove:
+      packages:
+        - nvidia-settings # NVIDIA X Server Settings (X11 is not available in GNOME)
+        - nvidia-libXNVCtrl # NVIDIA X Server Settings dependency.
+        - htop
+        - nvtop
+  - type: kargs
+    kargs:
+      - rd.driver.blacklist=nouveau
+      - modprobe.blacklist=nouveau
+      #- nvidia-drm.modeset=1 # check https://rpmfusion.org/Howto/NVIDIA#KMS to see why its disabled
+      - nvidia-drm.fbdev=1
+      - nvidia.NVreg_UsePageAttributeTable=1
+      - nvidia.NVreg_PreserveVideoMemoryAllocations=1
+      - nvidia.NVreg_TemporaryFilePath=/tmp
   # Configures DNS-over-TLS for secure connections
   - type: files
     files:
