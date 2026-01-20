@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: silver-ublue
+name: silverblue
 description: A custom image of an already amazing immutable linux distro 
 
 # Builds the image on top of silverblue-main's latest version
