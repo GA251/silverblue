@@ -4,7 +4,7 @@ A custom Fedora Silverblue Image with the following:
 - UUPD for automatic updates and Bazaar in place of gnome-software
 - NVIDIA-open drivers built-in
 - DNS-over-TLS enabled by default
-- zapret to bypass DPI inspection (**this is very specific software and will probably mess up your internet connection if you try and install this!**)
+- zapret to bypass DPI inspection (**this is very specific software and its probably not useful for a lot of people!**)
 - A few gnome extensions (Night Theme Switcher, AppIndicator and KStatusNotifierItem Support, Rounded Window Corners Reborn)
 - fastfetch utilty built-in
 - [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
