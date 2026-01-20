@@ -72,14 +72,13 @@ modules:
     scripts:
       - EnableZapret.sh
   # Configures GNOME with gschema overrides @ files/gschema-overrides/*
-  - type: gschema-overrides
-  # Configures GNOME with these extensions
+  # and extensions
   - type: gnome-extensions
     install:
       - 2236 # Night Theme Switcher
       - 615 # AppIndicator and KStatusNotifierItem Support (System Tray)
       - 7048 # Rounded Window Corners Reborn
-      # - 4998 # Legacy (GTK3) Theme Scheme Auto Switcher (for adw-gtk3)
+  - type: gschema-overrides
   # Configures Inbox apps that are shipped with the image
   - type: dnf
     install:
