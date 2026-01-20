@@ -78,6 +78,7 @@ modules:
     install:
       packages:
         - fastfetch
+        - adw-gtk3-theme # Libadwaita theme for gtk3 apps
     remove:
       packages:
         # removes firefox (in favor of the flatpak)
