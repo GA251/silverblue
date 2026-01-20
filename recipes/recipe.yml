@@ -78,6 +78,7 @@ modules:
       - 2236 # Night Theme Switcher
       - 615 # AppIndicator and KStatusNotifierItem Support (System Tray)
       - 7048 # Rounded Window Corners Reborn
+      - 8692 # "In Picture" - Fixes PiP in Wayland until native support arrives
   - type: gschema-overrides
   # Configures Inbox apps that are shipped with the image
   - type: dnf
