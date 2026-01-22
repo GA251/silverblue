@@ -47,5 +47,5 @@ jobs:
           # This needs to be merged in order to be fixed:
           # https://github.com/bootc-dev/bootc/commit/2a4476c6a86a7fc27086db87921738041a788360
           # -------
-          build_chunked_oci: true # I enabled it anyway
+          # build_chunked_oci: true
           maximize_build_space: true # we enable this because chunked_oci takes up more space and build time.
