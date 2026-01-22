@@ -42,9 +42,10 @@ jobs:
           # Uses rpm-ostree's build-chunked-oci feature to rechunk the image, allowing for smaller images and smaller updates.
           # This increases the build-time and take up more space during build-time.
           # -------
+          # TEMP
           # Keeps failing after minor changes due to rpm-ostree bug
           # This needs to be merged in order to be fixed:
           # https://github.com/bootc-dev/bootc/commit/2a4476c6a86a7fc27086db87921738041a788360
           # -------
-          # build_chunked_oci: true
+          build_chunked_oci: true # I enabled it anyway
           maximize_build_space: true # we enable this because chunked_oci takes up more space and build time.
