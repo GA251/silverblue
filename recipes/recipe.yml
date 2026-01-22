@@ -43,13 +43,13 @@ modules:
         - nvtop
   - type: kargs
     kargs:
-      - rd.driver.blacklist=nouveau
-      - modprobe.blacklist=nouveau
+      - rd.driver.blacklist=nouveau # Disable fallback to nouveau
+      - modprobe.blacklist=nouveau # Disable fallback to nouveau
       #- nvidia-drm.modeset=1 # check https://rpmfusion.org/Howto/NVIDIA#KMS to see why its disabled
       - nvidia-drm.fbdev=1
-      - nvidia.NVreg_UsePageAttributeTable=1
-      - nvidia.NVreg_PreserveVideoMemoryAllocations=1
-      - nvidia.NVreg_TemporaryFilePath=/tmp
+      - nvidia.NVreg_UsePageAttributeTable=1 # https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Kernel_module_parameters
+      - nvidia.NVreg_PreserveVideoMemoryAllocations=1 # https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
+      - nvidia.NVreg_TemporaryFilePath=/tmp # https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
   # Configures DNS-over-TLS for secure connections
   - type: files
     files:
