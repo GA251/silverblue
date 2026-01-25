@@ -46,6 +46,12 @@ jobs:
           # Keeps failing after minor changes due to rpm-ostree bug
           # This needs to be merged in order to be fixed:
           # https://github.com/bootc-dev/bootc/commit/2a4476c6a86a7fc27086db87921738041a788360
+          # ----
+          # It looks like this issue is merged after all, but fedora still hasn't included this version in their repositories.
+          # For now, we will use build_chunked_oci w/ rechunk_clear_plan until the package in the link below is updated to v2026.01
+          # https://packages.fedoraproject.org/pkgs/rpm-ostree/rpm-ostree/
+          # rechunk_clear_plan SHOULD BE REMOVED after rpm-ostree is updated to 2026.01!!!!!
           # -------
-          # build_chunked_oci: true
+          build_chunked_oci: true
+          rechunk_clear_plan: true
           maximize_build_space: true # we enable this because chunked_oci takes up more space and build time.
