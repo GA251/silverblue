@@ -26,6 +26,10 @@ modules:
     remove:
       packages:
         - ublue-os-update-services
+  - type: files
+    files:
+      - source: uupd
+        destination: /etc/uupd
   - type: script
     scripts:
       - EnableUUPD.sh
