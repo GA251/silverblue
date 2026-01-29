@@ -15,5 +15,8 @@ set -oue pipefail
 sed -i 's/stage/none/g' /etc/rpm-ostreed.conf
 systemctl disable rpm-ostreed-automatic.timer
 
+# Disable homebrew module because it doesn't exist
+sed -i 's|uupd|& --disable-module-brew|' /usr/lib/systemd/system/uupd.service
+
 # Enable automatic updates w/ UUPD
 systemctl enable uupd.timer
