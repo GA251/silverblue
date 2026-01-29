@@ -10,6 +10,8 @@ Includes:
 - [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
 - Most inbox apps moved to flatpaks
 
+It is essentially Linux with the reliability and automatic upgrades of a Chromebook.
+
 **Take a look @ [Bluebuild Docs](https://blue-build.org/learn/getting-started/) to get started with bluebuild's image creator!**
 
 ## Installation
@@ -31,8 +33,9 @@ To rebase an existing Fedora **Silverblue** installation to the latest build:
   ```
   systemctl reboot
   ```
+- New builds are made every day, and your system will automatically upgrade to them as they come.
 
-  ## Post-install:
+## Post-install:
   - You should configure secure boot with ```ujust enroll-secure-boot-key```
   - Because NVIDIA drivers don't support hardware decoding with firefox (by default), I recommend using Chromium based browsers or Epiphany (GNOME Web)
   - While updates are automatic and are installed after reboot without any intervention, if you need to force-update, you can run ```sudo uupd```
