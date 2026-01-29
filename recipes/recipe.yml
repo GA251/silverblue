@@ -95,10 +95,12 @@ modules:
         - yelp
         - gnome-software # Replaces GNOME Software in favor of Bazaar
         - gnome-software-rpm-ostree
+        - gnome-firmware
         - dconf-editor # (GSchema Overrides)
   - type: default-flatpaks
     configurations:
-      # Disables Fedora Flatpak and uses Flathub exclusively. Users decide what apps they want.
+      # Disables Fedora Flatpak and uses Flathub exclusively.
+      # These are system flatpaks we want all users to have and not remove
       - notify: false
         scope: user
         repo:
@@ -107,25 +109,27 @@ modules:
         scope: system
         repo:
           title: Flathub (System)
-        install: # system flatpaks we want all users to have and not remove
+        install: 
           - io.github.kolunmi.Bazaar # Bazaar App Store (in favor of gnome-software)
           - com.github.tchx84.Flatseal
           - org.gnome.Calculator
           - org.gnome.Calendar
-          #- org.gnome.Characters
           - org.gnome.Logs # GNOME Logs
           - org.gnome.Loupe # Image Viewer
           - org.gnome.NautilusPreviewer # GNOME Sushi
           - org.gnome.Papers # Document Viewer
-          #- org.gnome.Snapshot # Camera
           - org.gnome.TextEditor
           - org.gnome.Weather
           - org.gnome.baobab # Disk Usage Analyzer
           - org.gnome.clocks
-          #- org.gnome.font-viewer
           - org.gnome.Firmware
           - org.gtk.Gtk3theme.adw-gtk3 # Libadwaita theme for gtk3 apps
           - org.gtk.Gtk3theme.adw-gtk3-dark # Libadwaita theme for gtk3 apps
+
+          # These arent installed by default and its optional
+          #- org.gnome.Characters
+          #- org.gnome.font-viewer
+          #- org.gnome.Snapshot # Camera
   # Runs a "Prepare for First Use" script before the image is packaged and signed.
   - type: script
     scripts:
