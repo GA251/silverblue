@@ -1,18 +1,16 @@
-# silverblue &nbsp; [![bluebuild build badge](https://github.com/ga251/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/ga251/silverblue/actions/workflows/build.yml)
-
-A custom Fedora Silverblue Image with the following:
-- UUPD for automatic updates and Bazaar in place of gnome-software
-- Proprietary NVIDIA drivers built-in because nvidia-open is very very broken
-- DNS-over-TLS enabled by default
-- zapret to bypass DPI inspection (**this is very niche software and its probably not needed for *almost* anyone!**)
+# [![bluebuild build badge](https://github.com/ga251/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/ga251/silverblue/actions/workflows/build.yml)<br>A rock solid linux image based on Universal Blue
+Includes:
+- The reliability of Fedora Silverblue and UniversalBlue's images
+- UUPD for automatic updates and Bazaar as an app store
+- Proprietary NVIDIA drivers built-in (because nvidia-open is very very bad)
+- DNS-over-TLS enabled by default for secure connections to the internet
+- zapret to bypass DPI (**Disabled by default**)
 - A few gnome extensions (Night Theme Switcher, AppIndicator and KStatusNotifierItem Support, Rounded Window Corners Reborn)
 - fastfetch utilty built-in
 - [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
 - Most inbox apps moved to flatpaks
 
-**I think that this repo is a good reference point if you're looking towards building your own bluebuild image.**
-
-**You can also take a look @ [Bluebuild Docs](https://blue-build.org/learn/getting-started/) to get started with bluebuild!**
+**Take a look @ [Bluebuild Docs](https://blue-build.org/learn/getting-started/) to get started with bluebuild's image creator!**
 
 ## Installation
 To rebase an existing Fedora **Silverblue** installation to the latest build:
@@ -35,6 +33,6 @@ To rebase an existing Fedora **Silverblue** installation to the latest build:
   ```
 
   ## Post-install:
-  - You might need to configure secure boot with ```ujust enroll-secure-boot-key```
+  - You should configure secure boot with ```ujust enroll-secure-boot-key```
   - Because NVIDIA drivers don't support hardware decoding with firefox (by default), I recommend using Chromium based browsers or Epiphany (GNOME Web)
   - While updates are automatic and are installed after reboot without any intervention, if you need to force-update, you can run ```sudo uupd```
