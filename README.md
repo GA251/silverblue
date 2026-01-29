@@ -1,4 +1,4 @@
-# [![bluebuild build badge](https://github.com/ga251/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/ga251/silverblue/actions/workflows/build.yml)<br>A rock solid linux image based on Universal Blue
+# [![bluebuild build badge](https://github.com/ga251/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/ga251/silverblue/actions/workflows/build.yml)<br>A rock solid immutable linux image based on Universal Blue
 Includes:
 - The reliability of Fedora Silverblue and UniversalBlue's images
 - UUPD for automatic updates and Bazaar as an app store
