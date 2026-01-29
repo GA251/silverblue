@@ -33,7 +33,7 @@ modules:
   - type: akmods
     base: main
     install: [] # This is required but we don't want anything other than NVIDIA but that uses nvidia-driver
-    nvidia-driver: nvidia
+    nvidia-driver: nvidia-open
   - type: dnf
     remove:
       packages:
@@ -43,8 +43,6 @@ modules:
         - nvtop
   - type: kargs
     kargs:
-      - rd.driver.blacklist=nouveau # Disable fallback to nouveau
-      - modprobe.blacklist=nouveau # Disable fallback to nouveau
       #- nvidia-drm.modeset=1 # Fedora enables it anyway, and enabling it from here may actually mess with fedora (check https://rpmfusion.org/Howto/NVIDIA#KMS to see why its disabled)
       - nvidia-drm.fbdev=1 # Lets the terminal use the display resolution, might be required for wayland (https://wiki.archlinux.org/title/NVIDIA#fbdev)
       - nvidia.NVreg_UsePageAttributeTable=1 # PAT can increase performance (https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Kernel_module_parameters)
