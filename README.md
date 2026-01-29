@@ -2,7 +2,7 @@
 Includes:
 - The reliability of Fedora Silverblue and UniversalBlue's images
 - UUPD for automatic updates and Bazaar as an app store
-- Proprietary NVIDIA drivers built-in (because nvidia-open is very very bad)
+- Open NVIDIA kernel modules built-in
 - DNS-over-TLS enabled by default for secure connections to the internet
 - zapret to bypass DPI (**Disabled by default**)
 - A few gnome extensions (Night Theme Switcher, AppIndicator and KStatusNotifierItem Support, Rounded Window Corners Reborn)
