@@ -35,16 +35,18 @@ modules:
     install: [] # This is required but we don't want anything other than NVIDIA but that uses nvidia-driver
     nvidia-driver: nvidia-open
   - type: dnf
+    install:
+      packages:
+        libva-nvidia-driver
     remove:
       packages:
         - nvidia-settings # NVIDIA X Server Settings (X11 is not available in GNOME so we don't need it)
         - nvidia-libXNVCtrl # NVIDIA X Server Settings dependency.
         - htop
         - nvtop
-  - type: files
-    files:
-      - source: dracut.conf.d
-        destination: /etc/dracut.conf.d
+  - type: script
+    scripts:
+      - ConfigureNVIDIA.sh
   # Lets go with the defaults!
   #- type: kargs
   #  kargs:
