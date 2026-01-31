@@ -37,18 +37,23 @@ modules:
   - type: dnf
     remove:
       packages:
-        - nvidia-settings # NVIDIA X Server Settings (X11 is not available in GNOME)
+        - nvidia-settings # NVIDIA X Server Settings (X11 is not available in GNOME so we don't need it)
         - nvidia-libXNVCtrl # NVIDIA X Server Settings dependency.
         - htop
         - nvtop
-  - type: kargs
-    kargs:
-      #- nvidia-drm.modeset=1 # Fedora enables it anyway, and enabling it from here may actually mess with fedora (check https://rpmfusion.org/Howto/NVIDIA#KMS to see why its disabled)
-      - nvidia-drm.fbdev=1 # Lets the terminal use the display resolution, might be required for wayland (https://wiki.archlinux.org/title/NVIDIA#fbdev)
-      - nvidia.NVreg_UsePageAttributeTable=1 # PAT can increase performance (https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Kernel_module_parameters)
-      - nvidia.NVreg_PreserveVideoMemoryAllocations=1 # Screen corruption after resuming from suspend (https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend)
-      - nvidia.NVreg_TemporaryFilePath=/var/tmp # Screen corruption after resuming from suspend (https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend)
-      - nvidia.NVreg_DynamicPowerManagement=0x02 # Display corruption after reboot on GNOME (https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#Fix_graphical_corruption_in_GNOME_Shell_when_resuming_from_sleep)
+  - type: files
+    files:
+      - source: dracut.conf.d
+        destination: /etc/dracut.conf.d
+  # Lets go with the defaults!
+  #- type: kargs
+  #  kargs:
+  #    #- nvidia-drm.modeset=1 # Fedora enables it anyway, and enabling it from here may actually mess with fedora (check https://rpmfusion.org/Howto/NVIDIA#KMS to see why its disabled)
+  #    - nvidia-drm.fbdev=1 # Lets the terminal use the display resolution, might be required for wayland (https://wiki.archlinux.org/title/NVIDIA#fbdev)
+  #    - nvidia.NVreg_UsePageAttributeTable=1 # PAT can increase performance (https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Kernel_module_parameters)
+  #    - nvidia.NVreg_PreserveVideoMemoryAllocations=1 # Screen corruption after resuming from suspend (https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend)
+  #    - nvidia.NVreg_TemporaryFilePath=/var/tmp # Screen corruption after resuming from suspend (https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend)
+  #    - nvidia.NVreg_DynamicPowerManagement=0x02 # Display corruption after reboot on GNOME (https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#Fix_graphical_corruption_in_GNOME_Shell_when_resuming_from_sleep)
   # Configures DNS-over-TLS for secure connections
   - type: files
     files:
