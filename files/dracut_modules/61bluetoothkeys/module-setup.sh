@@ -7,7 +7,8 @@ check() {
 depends() {
   # This module obviously requires the bluetooth module
   # the bluetooth module also has its own requirements but dracut loads them anyway
-  echo bluetooth
+  # I include numlock because I needed it anyway
+  echo bluetooth numlock
   return 0
 }
 
