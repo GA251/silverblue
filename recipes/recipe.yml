@@ -133,12 +133,14 @@ modules:
   - type: script
     scripts:
       - PrepareForFirstUse.sh
+  # Installs these dracut modules:
+  # Enables bluetooth keyboard support
   # Enables Numpad on boot during disk encryption process (Plymouth)
   # MAKE SURE THIS IS LAST BEFORE SIGNING because it's recommended to put the initramfs module that way.
   - type: files
     files:
-      - source: dracut-numlock
-        destination: /usr/lib/dracut/modules.d/50numlock
+      - source: dracut_modules
+        destination: /usr/lib/dracut/modules.d
   - type: initramfs
   # Configure image signing and security policy - REQUIRED
   - type: signing
