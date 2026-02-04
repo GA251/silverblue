@@ -68,21 +68,12 @@ modules:
     files:
       - source: zapret
         destination: /etc/zapret
-  # Configures GNOME with gschema overrides @ files/gschema-overrides/*
-  # and extensions
-  - type: gnome-extensions
-    install:
-      - 2236 # Night Theme Switcher
-      - 615 # AppIndicator and KStatusNotifierItem Support (System Tray)
-      - 7048 # Rounded Window Corners Reborn
-      - 8692 # "In Picture" - Fixes PiP in Wayland until native support arrives
-  - type: gschema-overrides
   # Configures Inbox apps that are shipped with the image
   - type: dnf
     install:
       packages:
         - fastfetch
-        - adw-gtk3-theme # Libadwaita theme for gtk3 apps
+        - adw-gtk3-theme # Libadwaita theme for gtk3 apps, needs to be enabled with gschema too
     remove:
       packages:
         # removes firefox (in favor of the flatpak)
@@ -96,6 +87,7 @@ modules:
         - gnome-software-rpm-ostree
         - gnome-firmware
         - dconf-editor # (GSchema Overrides)
+        - gnome-system-monitor # Replaces GNOME System Monitor in favor of Resources (net.nokyan.Resources)
   - type: default-flatpaks
     configurations:
       # Disables Fedora Flatpak and uses Flathub exclusively.
@@ -123,13 +115,23 @@ modules:
           - org.gnome.clocks
           - org.gnome.Firmware
           - org.gnome.Showtime # Video Player
+          - net.nokyan.Resources # Replaces GNOME System Monitor in favor of Resources (net.nokyan.Resources)
           - org.gtk.Gtk3theme.adw-gtk3 # Libadwaita theme for gtk3 apps
           - org.gtk.Gtk3theme.adw-gtk3-dark # Libadwaita theme for gtk3 apps
 
-          # These arent installed by default and its optional
+          # These are bundled by gnome but remove them and make it optional as flatpaks
           #- org.gnome.Characters
           #- org.gnome.font-viewer
           #- org.gnome.Snapshot # Camera
+  # Configures GNOME with gschema overrides @ files/gschema-overrides/*
+  # and extensions (they need to be enabled from gschema overrides too!)
+  - type: gnome-extensions
+    install:
+      - 2236 # Night Theme Switcher
+      - 615 # AppIndicator and KStatusNotifierItem Support (System Tray)
+      - 7048 # Rounded Window Corners Reborn
+      - 8692 # "In Picture" - Fixes PiP in Wayland until native support arrives
+  - type: gschema-overrides
   # Runs a "Prepare for First Use" script before the image is packaged and signed.
   - type: script
     scripts:
