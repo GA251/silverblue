@@ -1,4 +1,4 @@
-# <img src="https://minecraft.wiki/images/Bedrock_JE2_BE2.png" width="160"><br>A rock solid immutable linux image based on Universal Blue Base Images [![bluebuild build badge](https://github.com/ga251/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/ga251/silverblue/actions/workflows/build.yml)
+# <img src="https://minecraft.wiki/images/Bedrock_JE2_BE2.png" width="140"><br>A rock solid immutable linux image based on Universal Blue Base Images [![bluebuild build badge](https://github.com/ga251/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/ga251/silverblue/actions/workflows/build.yml)
 Includes:
 - The reliability of Fedora Silverblue and UniversalBlue's images
 - UUPD for automatic updates and Bazaar as an app store
